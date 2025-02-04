@@ -1,0 +1,27 @@
+# IdeaDetails.tsx
+Displays detailed information about a specific idea.
+
+## Purpose
+Provides a detailed view of an idea, including description, attachments, reviews, and team members.
+
+## Key Features
+1. **Idea Information**:
+   - Shows title, description, expected impact, and status.
+
+2. **Attachments**:
+   - Lists and links to uploaded files.
+
+3. **Team Details**:
+   - Displays the idea submitter and co-applicants.
+
+4. **Review Integration**:
+   - Allows authorized users to add reviews.
+
+5. **Benefits**:
+   - Offers comprehensive details in a single view.
+   - Streamlines review workflows.
+
+## Example
+```javascript
+<ReviewModal ideaId={idea.id} />
+```
