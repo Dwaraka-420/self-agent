@@ -1,0 +1,24 @@
+# ReviewDashboard.tsx
+Provides an interface for reviewing submitted ideas.
+
+## Purpose
+Allows users to review and evaluate ideas based on filters and search.
+
+## Key Features
+1. **Search**:
+   - Supports searching by title and description.
+
+2. **Filters**:
+   - Includes filters for status, line of business, and date range.
+
+3. **Idea Display**:
+   - Uses `IdeaCard` components to list ideas for review.
+
+4. **Benefits**:
+   - Streamlines the review process.
+   - Enhances accessibility with search and filters.
+
+## Example
+```javascript
+<FilterPanel onFilterChange={setFilters} />
+```
