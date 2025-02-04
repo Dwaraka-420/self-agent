@@ -1,0 +1,24 @@
+# api.ts
+Provides API interaction services for the application.
+
+## Purpose
+Facilitates communication between the frontend and the backend by defining reusable functions for API requests.
+
+## Key Features
+1. **API Endpoints**:
+   - Abstracts API routes for authentication, idea management, and user operations.
+
+2. **Reusable Methods**:
+   - Includes functions like `login`, `register`, `getAllIdeas`, etc.
+
+3. **Error Handling**:
+   - Implements consistent error handling for failed requests.
+
+4. **Benefits**:
+   - Simplifies API integration.
+   - Promotes code reusability and consistency.
+
+## Example
+```javascript
+const ideas = await ideaService.getAll();
+```
