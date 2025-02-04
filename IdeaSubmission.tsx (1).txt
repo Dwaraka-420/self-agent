@@ -1,0 +1,21 @@
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import { ideaService } from '../services/api';
+
+function IdeaSubmission() {
+  const { register, handleSubmit } = useForm();
+
+  const onSubmit = async (data) => {
+    await ideaService.create(data);
+  };
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <input {...register('title')} placeholder="Idea Title" />
+      <textarea {...register('description')} placeholder="Idea Description" />
+      <button type="submit">Submit Idea</button>
+    </form>
+  );
+}
+
+export default IdeaSubmission;
