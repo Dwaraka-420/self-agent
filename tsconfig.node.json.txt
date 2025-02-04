@@ -1,0 +1,9 @@
+# tsconfig.node.json
+TypeScript configuration for Node.js-specific code.
+
+- `compilerOptions`:
+  - Targets `ES2022` with libraries supporting `ES2023`.
+  - `moduleResolution`: Uses `bundler` mode for resolving modules.
+  - Enforces strict linting (`strict`, `noUnusedLocals`, etc.).
+- `include`: Includes only `vite.config.ts`.
+Configures TypeScript for server-side Node.js code.
