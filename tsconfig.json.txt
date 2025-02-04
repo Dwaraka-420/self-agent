@@ -1,0 +1,6 @@
+# tsconfig.json
+The root TypeScript configuration file for the project.
+
+- `files`: Empty since this file only references other configurations.
+- `references`: Points to `tsconfig.app.json` and `tsconfig.node.json`.
+Used to manage multiple TypeScript configurations in a monorepo or modular project.
