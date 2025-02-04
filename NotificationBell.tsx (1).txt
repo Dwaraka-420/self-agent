@@ -1,0 +1,5 @@
+import React from 'react';
+import { BellIcon } from 'lucide-react';
+import { useNotifications } from '../services/NotificationService';
+
+// Full implementation as loaded
