@@ -1,0 +1,26 @@
+# ReviewModal.tsx
+Displays a modal for submitting reviews for an idea.
+
+## Key Features
+1. **Props**:
+   - `ideaId`: ID of the idea being reviewed.
+   - `onClose`: Callback to close the modal.
+   - `onSubmit`: Callback after successful review submission.
+
+2. **Functionalities**:
+   - Validates user inputs using `react-hook-form`.
+   - Submits review data via `react-query` and handles server errors.
+   - Supports stages like `FLR`, `SLR`, and `PF`.
+
+3. **Benefits**:
+   - Provides a streamlined process for submitting reviews.
+   - Ensures validation and error handling for review inputs.
+
+## Example
+```javascript
+<ReviewModal
+  ideaId="12345"
+  onClose={() => setModalOpen(false)}
+  onSubmit={() => refetchReviews()}
+/>
+```
