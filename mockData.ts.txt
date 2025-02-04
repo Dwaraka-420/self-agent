@@ -1,0 +1,23 @@
+# mockData.ts
+Contains mock data for testing and development purposes.
+
+## Purpose
+Provides pre-defined data structures for testing components and features in a local environment.
+
+## Key Features
+1. **Mock Ideas**:
+   - Includes sample ideas with titles, descriptions, and statuses.
+
+2. **Mock Users**:
+   - Provides a list of sample users for testing authentication and role-based features.
+
+3. **Benefits**:
+   - Accelerates development by enabling testing without backend dependencies.
+   - Ensures consistent data for UI validation.
+
+## Example
+```javascript
+const mockIdeas = [
+  { id: '1', title: 'Sample Idea', status: 'DRAFT', submittedBy: 'User A' }
+];
+```
