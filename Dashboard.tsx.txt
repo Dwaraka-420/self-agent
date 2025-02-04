@@ -1,0 +1,24 @@
+# Dashboard.tsx
+Displays the user's ideas with search and filtering capabilities.
+
+## Purpose
+Provides a centralized view for users to manage their ideas.
+
+## Key Features
+1. **Search**:
+   - Allows users to search ideas by title or description.
+
+2. **Filters**:
+   - Filters ideas based on status, line of business, and other criteria.
+
+3. **Idea Display**:
+   - Uses `IdeaCard` components to display ideas in a grid.
+
+4. **Benefits**:
+   - Improves user experience by providing quick access to ideas.
+   - Offers flexibility with dynamic filtering and searching.
+
+## Example
+```javascript
+<IdeaCard idea={idea} />
+```
