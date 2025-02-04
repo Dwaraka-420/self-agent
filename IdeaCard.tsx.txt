@@ -1,0 +1,29 @@
+# IdeaCard.tsx
+This component renders an individual idea card with details and actions.
+
+## Key Features
+1. **Props**:
+   - `idea`: Contains information such as title, description, status, and associated metadata.
+   - `showActions`: Optional; determines if action buttons (e.g., "View Details") are displayed.
+
+2. **Functionalities**:
+   - Displays the idea's status with color-coded badges.
+   - Supports conditional rendering for co-applicants and attachments.
+   - Includes a link to view detailed information about the idea.
+
+3. **Benefits**:
+   - Presents a clean and organized summary of ideas.
+   - Enables quick access to additional details and related actions.
+
+## Example
+```javascript
+<IdeaCard
+  idea={{
+    title: 'New Feature Proposal',
+    description: 'A proposal to add a new feature.',
+    status: 'DRAFT',
+    submittedBy: 'John Doe',
+    createdat: '2024-01-01',
+  }}
+/>
+```
