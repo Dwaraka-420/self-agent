@@ -1,0 +1,65 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://newuser:newpassword@localhost:5432/ideasubmission"
+}
+
+model User {
+  id             String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  email          String    @unique @db.VarChar(255)
+  name           String    @db.VarChar(255)
+  role           String    @db.VarChar(50)
+  department     String    @db.VarChar(255)
+  lineofbusiness String    @db.VarChar(255)
+  createdat      DateTime? @default(now()) @db.Timestamp(6)
+  updatedat      DateTime? @default(now()) @db.Timestamp(6)
+  Idea           Idea[]
+  Review         Review[]
+}
+
+model Idea {
+  id             String        @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  title          String        @db.VarChar(255)
+  description    String
+  expectedimpact String
+  status         String        @db.VarChar(50)
+  submittedby    String?       @db.Uuid
+  lineofbusiness String        @db.VarChar(255)
+  createdat      DateTime?     @default(now()) @db.Timestamp(6)
+  updatedat      DateTime?     @default(now()) @db.Timestamp(6)
+  Attachment     Attachment[]
+  CoApplicant    CoApplicant[]
+  User           User?         @relation(fields: [submittedby], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  Review         Review[]
+}
+
+model Review {
+  id         String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  ideaid     String?   @db.Uuid
+  reviewerid String?   @db.Uuid
+  stage      String    @db.VarChar(50)
+  status     String    @db.VarChar(50)
+  comments   String?
+  createdat  DateTime? @default(now()) @db.Timestamp(6)
+  Idea       Idea?     @relation(fields: [ideaid], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  User       User?     @relation(fields: [reviewerid], references: [id], onDelete: Cascade, onUpdate: NoAction)
+}
+
+model Attachment {
+  id        String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  ideaid    String?   @db.Uuid
+  filename  String    @db.VarChar(255)
+  fileurl   String    @db.VarChar(1024)
+  createdat DateTime? @default(now()) @db.Timestamp(6)
+  Idea      Idea?     @relation(fields: [ideaid], references: [id], onDelete: Cascade, onUpdate: NoAction)
+}
+
+model CoApplicant {
+  id              String  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  ideaid          String? @db.Uuid
+  coapplicantname String  @db.VarChar(255)
+  Idea            Idea?   @relation(fields: [ideaid], references: [id], onDelete: Cascade, onUpdate: NoAction)
+}
