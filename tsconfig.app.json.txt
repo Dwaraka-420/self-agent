@@ -1,0 +1,9 @@
+# tsconfig.app.json
+TypeScript configuration for the application code.
+
+- `compilerOptions`: Specifies the TypeScript compiler settings.
+  - Targets `ES2020` and supports `DOM`.
+  - `moduleResolution`: Uses `bundler` mode for resolving modules.
+  - `strict`: Enforces strict TypeScript checks (e.g., `noUnusedLocals`).
+- `include`: Specifies the `src` directory as the included source.
+Configures TypeScript for building the client-side application.
