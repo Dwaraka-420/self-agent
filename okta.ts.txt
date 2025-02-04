@@ -1,0 +1,10 @@
+// Simulated content for okta.ts
+import { OktaAuth } from '@okta/okta-auth-js';
+
+const authClient = new OktaAuth({
+  issuer: 'https://example.okta.com/oauth2/default',
+  clientId: 'example-client-id',
+  redirectUri: 'http://localhost:3000/callback',
+});
+
+export default authClient;
