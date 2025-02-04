@@ -1,0 +1,26 @@
+# AuthContext.tsx
+Provides authentication context and state management for the application.
+
+## Purpose
+Manages user authentication, including login, logout, registration, and session persistence.
+
+## Key Features
+1. **Context Creation**:
+   - Exposes authentication functions (`login`, `logout`, `register`) and user state.
+
+2. **Session Persistence**:
+   - Automatically restores user sessions from localStorage.
+
+3. **Authentication Flow**:
+   - Handles login and registration with backend API integration.
+   - Supports automatic logout.
+
+4. **Benefits**:
+   - Simplifies authentication management with a centralized context.
+   - Makes authentication accessible throughout the app via `useAuth`.
+
+## Example
+```javascript
+const { user, login, logout } = useAuth();
+if (user) console.log('Logged-in user:', user);
+```
