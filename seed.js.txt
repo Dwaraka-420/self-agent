@@ -1,0 +1,38 @@
+# seed.js
+This script seeds the database with initial data for development or testing purposes.
+
+## Purpose
+The `seed.js` script is used to populate the database with predefined data, including users and ideas, for a clean and consistent state during development.
+
+## Key Features
+1. **Database Cleanup:**
+   - Deletes all existing data from tables: `review`, `attachment`, `idea`, and `user`.
+   - Ensures there are no duplicate or conflicting records.
+
+2. **User Creation:**
+   - Creates three initial users:
+     - Admin: Manages the system.
+     - Reviewer: Reviews submissions.
+     - Applicant: Submits ideas.
+
+3. **Sample Ideas:**
+   - Adds a sample idea with detailed information such as:
+     - Title: AI-Powered Code Review Assistant.
+     - Description: An intelligent system for code reviews.
+     - Expected Impact: Reduces review time and improves quality.
+
+4. **Error Handling:**
+   - Logs errors and gracefully disconnects the Prisma client.
+
+## Example Code
+```javascript
+await prisma.user.create({
+  data: {
+    email: 'admin@example.com',
+    name: 'Admin User',
+    role: 'ADMIN',
+    department: 'Technology',
+    lineOfBusiness: 'SOFTWARE'
+  }
+});
+```
