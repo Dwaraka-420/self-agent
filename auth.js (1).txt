@@ -1,0 +1,37 @@
+# auth.js
+This file implements authentication functionality for the application using Express and Prisma ORM.
+
+## Purpose
+Provides a REST API endpoint for user login and credential validation.
+
+## Features
+1. **POST /login**
+   - Accepts user credentials (`email`) in the request body.
+   - Validates the email against the database using Prisma.
+   - Responds with:
+     - `401 Unauthorized`: If the email is not found.
+     - `200 OK`: If validation is successful, returns the user object.
+
+## Dependencies
+- **express**: For HTTP request handling.
+- **PrismaClient**: Interacts with the `user` table in the database.
+- **express-async-handler**: Handles async routes gracefully to avoid unhandled promise rejections.
+
+## Example Usage
+```javascript
+router.post('/login', asyncHandler(async (req, res) => {
+  const { email } = req.body;
+
+  const user = await prisma.user.findUnique({ where: { email } });
+
+  if (!user) {
+    res.status(401).json({ message: 'Invalid credentials' });
+    return;
+  }
+
+  res.json(user);
+}));
+```
+
+## Error Handling
+Handles invalid credentials and database connection errors, returning appropriate HTTP status codes.
