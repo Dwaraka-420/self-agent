@@ -1,0 +1,24 @@
+# vite-env.d.ts
+TypeScript declarations for Vite environment variables.
+
+## Purpose
+Provides type definitions for accessing environment variables through `import.meta.env`.
+
+## Key Features
+1. **Type Safety:**
+   - Ensures type checking for environment variables during development and build.
+
+2. **Custom Variables:**
+   - Supports Vite-specific variables such as `VITE_API_URL`, `VITE_APP_TITLE`, etc.
+
+## Example
+```typescript
+interface ImportMetaEnv {
+  readonly VITE_API_URL: string;
+  readonly VITE_APP_TITLE: string;
+}
+```
+
+## Benefits
+- Prevents runtime errors by ensuring type safety.
+- Facilitates the use of environment variables in a type-safe manner.
