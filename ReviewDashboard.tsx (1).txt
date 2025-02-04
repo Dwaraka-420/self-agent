@@ -1,0 +1,21 @@
+import React from 'react';
+import { useQuery } from 'react-query';
+import IdeaCard from '../components/IdeaCard';
+import FilterPanel from '../components/FilterPanel';
+import { ideaService } from '../services/api';
+
+function ReviewDashboard() {
+  const { data: ideas } = useQuery('ideasForReview', ideaService.lineOfBusinessIdeas);
+
+  return (
+    <div>
+      <h1>Review Dashboard</h1>
+      <FilterPanel onFilterChange={(filters) => console.log(filters)} />
+      {ideas?.map((idea) => (
+        <IdeaCard key={idea.id} idea={idea} />
+      ))}
+    </div>
+  );
+}
+
+export default ReviewDashboard;
