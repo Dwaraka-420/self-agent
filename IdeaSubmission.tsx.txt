@@ -1,0 +1,26 @@
+# IdeaSubmission.tsx
+Allows users to submit new ideas with co-applicants and attachments.
+
+## Purpose
+Provides a form for users to create and submit ideas.
+
+## Key Features
+1. **Form Validation**:
+   - Validates required fields like title, description, and expected impact.
+
+2. **Co-Applicants**:
+   - Supports adding up to five co-applicants.
+
+3. **Attachments**:
+   - Allows uploading multiple files.
+
+4. **Benefits**:
+   - Simplifies the idea submission process.
+   - Ensures valid and complete data submission.
+
+## Example
+```javascript
+<form onSubmit={handleSubmit(onSubmit)}>
+  <input {...register('title', { required: true })} />
+</form>
+```
