@@ -1,0 +1,26 @@
+# Login.tsx
+Handles user login and registration.
+
+## Purpose
+Provides a user interface for authentication.
+
+## Key Features
+1. **Login**:
+   - Authenticates users with email and password.
+
+2. **Registration**:
+   - Allows new users to register with additional details like name and department.
+
+3. **Error Handling**:
+   - Displays errors for invalid credentials or registration issues.
+
+4. **Benefits**:
+   - Supports both login and registration in a single interface.
+   - Enhances user experience with validation and feedback.
+
+## Example
+```javascript
+<form onSubmit={handleSubmit}>
+  <input value={email} onChange={(e) => setEmail(e.target.value)} />
+</form>
+```
