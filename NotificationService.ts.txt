@@ -1,0 +1,21 @@
+# NotificationService.ts
+Manages notifications in the application.
+
+## Purpose
+Handles retrieving, managing, and marking notifications as read for the user.
+
+## Key Features
+1. **Notification Retrieval**:
+   - Fetches user notifications from the backend.
+
+2. **Mark as Read**:
+   - Updates notification status to "read" in the backend.
+
+3. **Benefits**:
+   - Keeps users informed about important updates.
+   - Provides a centralized service for notification management.
+
+## Example
+```javascript
+const notifications = await notificationService.getAll();
+```
