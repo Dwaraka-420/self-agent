@@ -1,0 +1,27 @@
+# FilterPanel.tsx
+This component provides a user interface for filtering ideas based on specific criteria.
+
+## Key Features
+1. **Props**:
+   - `onFilterChange`: Callback to pass updated filter states to the parent component.
+   - `initialFilters`: Optional; defines the default state for filters.
+
+2. **State Management**:
+   - Maintains local state for filters: `status`, `lineOfBusiness`, and `dateRange`.
+
+3. **Functionalities**:
+   - Users can select or deselect filters using checkboxes.
+   - Includes a dropdown to filter ideas by a specific date range.
+   - Provides a "Clear All Filters" button to reset filters to default values.
+
+4. **Benefits**:
+   - Offers granular control over displayed ideas.
+   - Provides flexibility to adjust filters dynamically.
+
+## Example
+```javascript
+<FilterPanel
+  onFilterChange={(filters) => console.log(filters)}
+  initialFilters={{ status: ['DRAFT'], lineOfBusiness: ['SOFTWARE'], dateRange: 'week' }}
+/>
+```
