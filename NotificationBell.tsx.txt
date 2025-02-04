@@ -1,0 +1,21 @@
+# NotificationBell.tsx
+Manages and displays a notification dropdown for the application.
+
+## Key Features
+1. **State Management**:
+   - Tracks whether the dropdown is open using local state.
+   - Updates the notification state when items are marked as read.
+
+2. **Functionalities**:
+   - Displays unread notifications with a badge.
+   - Marks notifications as read upon interaction.
+   - Closes the dropdown when clicking outside.
+
+3. **Benefits**:
+   - Enhances user engagement by providing timely notifications.
+   - Allows seamless interaction with notification details.
+
+## Example
+```javascript
+<NotificationBell />
+```
