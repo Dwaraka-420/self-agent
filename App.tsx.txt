@@ -1,0 +1,39 @@
+# App.tsx
+This file serves as the main component for defining routes, context providers, and integrating React Query for data management.
+
+## Key Features
+1. **Route Management:**
+   - Utilizes `react-router-dom` to define the navigation structure.
+   - Routes include:
+     - `/login`: Displays the Login page.
+     - `/dashboard`: Accessible only to authenticated users with roles ADMIN, APPLICANT, or REVIEWER.
+     - `/submit`: Allows idea submission for eligible users.
+     - `/ideas/:id`: Displays details of a specific idea.
+     - `/review`: Restricted to REVIEWER and ADMIN roles.
+     - `/admin`: Accessible only to ADMIN users.
+
+2. **Protected Routes:**
+   - Uses `ProtectedRoute` to ensure only users with appropriate roles can access specific pages.
+
+3. **React Query Integration:**
+   - Configures a `QueryClient` to handle API calls efficiently with caching and retry mechanisms.
+
+4. **Context Providers:**
+   - Wraps the application with `AuthProvider` to manage user authentication globally.
+
+## Example
+```javascript
+<Route
+  path="dashboard"
+  element={
+    <ProtectedRoute allowedRoles={['ADMIN','APPLICANT','REVIEWER']}>
+      <Dashboard />
+    </ProtectedRoute>
+  }
+/>
+```
+
+## Benefits
+- Simplifies navigation.
+- Enhances user experience by restricting access to unauthorized users.
+- Provides efficient and centralized state management for authentication and API interactions.
