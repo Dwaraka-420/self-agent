@@ -1,0 +1,19 @@
+import React from 'react';
+import { useQuery } from 'react-query';
+import IdeaCard from '../components/IdeaCard';
+import { ideaService } from '../services/api';
+
+function Dashboard() {
+  const { data: ideas } = useQuery('ideas', ideaService.getAll);
+
+  return (
+    <div>
+      <h1>Dashboard</h1>
+      {ideas?.map((idea) => (
+        <IdeaCard key={idea.id} idea={idea} />
+      ))}
+    </div>
+  );
+}
+
+export default Dashboard;
