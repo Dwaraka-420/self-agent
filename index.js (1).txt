@@ -1,0 +1,71 @@
+# index.js
+This is the main server file that initializes the Express application and defines various API endpoints.
+
+## Purpose
+Provides REST API endpoints for authentication, idea management, reviews, and user operations. Integrates JWT authentication and AWS S3 for file handling.
+
+## Features
+1. **Authentication**
+   - `/api/auth/login`: Validates user credentials and issues JWTs.
+   - `/api/auth/register`: Registers new users with default `APPLICANT` roles.
+
+2. **Ideas Management**
+   - `/api/ideas`: CRUD operations for ideas.
+   - Includes support for:
+     - File attachments uploaded to AWS S3.
+     - Co-applicants linked to ideas.
+
+3. **Reviews**
+   - `/api/ideas/:id/reviews`: Handles review submissions and validation of the review process.
+
+4. **User Management**
+   - `/api/users`: Fetches user details.
+   - `/api/users/:id`: Updates or deletes user records.
+
+5. **File Handling**
+   - Uses AWS S3 to upload and manage attachments associated with ideas.
+
+## Key Components
+1. **JWT Authentication**
+   - Generates tokens with user details for secure endpoints.
+   - Middleware (`authenticateToken`) validates incoming requests.
+
+2. **Error Handling**
+   - Global middleware for centralized error response.
+
+3. **AWS S3 Integration**
+   - Handles file uploads with unique paths based on user ID.
+
+4. **Database Operations**
+   - Uses Prisma ORM to interact with `user`, `idea`, and `review` tables.
+
+## Example Usage
+### JWT Token Generation
+```javascript
+function generateToken(user) {
+  return jwt.sign(
+    { id: user.id, email: user.email },
+    JWT_SECRET,
+    { expiresIn: '1h' }
+  );
+}
+```
+
+### S3 File Upload
+```javascript
+const uploadToS3 = async (file, userId) => {
+  const params = {
+    Bucket: 'pdi-idea-submission',
+    Key: `attachments/${userId}/${Date.now()}_${file.originalname}`,
+    Body: file.buffer,
+    ContentType: file.mimetype,
+  };
+
+  const command = new PutObjectCommand(params);
+  const data = await s3Client.send(command);
+  return `https://${params.Bucket}.s3.us-east-1.amazonaws.com/${params.Key}`;
+};
+```
+
+## Port Configuration
+- Application runs on `localhost:3000` by default.
