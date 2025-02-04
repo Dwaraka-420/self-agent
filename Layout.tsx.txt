@@ -1,0 +1,23 @@
+# Layout.tsx
+Defines the application's main layout, including navigation, content area, and footer.
+
+## Key Features
+1. **Components**:
+   - Navigation bar: Includes links to pages based on user roles.
+   - Content outlet: Displays the routed content for the current page.
+   - Footer: Contains branding and copyright information.
+
+2. **Authentication Integration**:
+   - Displays user information (name and department).
+   - Supports user logout functionality.
+
+3. **Benefits**:
+   - Provides a consistent layout for the application.
+   - Adjusts navigation options dynamically based on user roles.
+
+## Example
+```javascript
+<Layout>
+  <Outlet />
+</Layout>
+```
