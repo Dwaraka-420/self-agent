@@ -1,0 +1,19 @@
+// Simulated content for schema.prisma
+model User {
+  id       Int     @id @default(autoincrement())
+  email    String  @unique
+  name     String
+  role     String
+  ideas    Idea[]
+}
+
+model Idea {
+  id             Int        @id @default(autoincrement())
+  title          String
+  description    String
+  expectedImpact String
+  status         String
+  submittedBy    Int
+  lineOfBusiness String
+  User           User       @relation(fields: [submittedBy], references: [id])
+}
