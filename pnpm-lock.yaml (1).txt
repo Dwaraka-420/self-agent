@@ -1,0 +1,8 @@
+# pnpm-lock.yaml
+This file locks the dependencies and their versions for the project, ensuring consistent installations across environments.
+
+- `lockfileVersion`: Indicates the version of the pnpm lockfile format.
+- `dependencies`: Lists the direct dependencies and their versions.
+- `devDependencies`: Lists development dependencies and their versions.
+- `packages`: Includes metadata about all resolved dependencies, their integrity checks, and peer dependencies.
+Used by the `pnpm` package manager to guarantee reproducible builds.
