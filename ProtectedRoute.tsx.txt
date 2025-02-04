@@ -1,0 +1,22 @@
+# ProtectedRoute.tsx
+A higher-order component that restricts access to routes based on authentication and user roles.
+
+## Key Features
+1. **Props**:
+   - `children`: The content to display if the user is authorized.
+   - `allowedRoles`: Optional; specifies roles allowed to access the route.
+
+2. **Functionalities**:
+   - Redirects unauthenticated users to the login page.
+   - Restricts access to unauthorized roles based on user data.
+
+3. **Benefits**:
+   - Improves application security by enforcing role-based access control.
+   - Provides a centralized solution for protecting routes.
+
+## Example
+```javascript
+<ProtectedRoute allowedRoles={['ADMIN', 'REVIEWER']}>
+  <AdminPanel />
+</ProtectedRoute>
+```
