@@ -1,0 +1,29 @@
+# schema.prisma
+This file defines the database schema and configurations for the project using Prisma.
+
+## Purpose
+The schema is used to define database tables, their relationships, and the underlying database provider.
+
+## Key Sections
+1. **Model Definitions:**
+   - Models represent database tables with fields corresponding to table columns.
+   - Each field has a data type, constraints (e.g., unique, required), and relationships.
+
+2. **Relationships:**
+   - Defines relationships between tables, such as `one-to-many` and `many-to-many`.
+   - Enables efficient queries and data handling.
+
+3. **Database Configuration:**
+   - Specifies the database provider (e.g., PostgreSQL, MySQL, SQLite).
+   - Configures connection settings, such as the database URL.
+
+4. **Example:**
+   ```prisma
+   model User {
+     id       Int    @id @default(autoincrement())
+     email    String @unique
+     name     String
+     role     String
+     ideas    Idea[]
+   }
+   ```
