@@ -1,0 +1,31 @@
+import React from 'react';
+import { useQuery, useMutation, useQueryClient } from 'react-query';
+import { userService } from '../services/api';
+
+function AdminPanel() {
+  const queryClient = useQueryClient();
+  const { data: users } = useQuery('users', userService.getAll);
+  const updateUserMutation = useMutation(userService.updateRole, {
+    onSuccess: () => queryClient.invalidateQueries('users'),
+  });
+
+  return (
+    <div>
+      <h1>Admin Panel</h1>
+      {users?.map((user) => (
+        <div key={user.id}>
+          <span>{user.name}</span>
+          <select
+            value={user.role}
+            onChange={(e) => updateUserMutation.mutate({ userId: user.id, role: e.target.value })}
+          >
+            <option value="ADMIN">Admin</option>
+            <option value="REVIEWER">Reviewer</option>
+          </select>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export default AdminPanel;
