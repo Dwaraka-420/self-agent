@@ -1,0 +1,18 @@
+import React from 'react';
+import { useQuery } from 'react-query';
+import { useParams } from 'react-router-dom';
+import { ideaService } from '../services/api';
+
+function IdeaDetails() {
+  const { id } = useParams();
+  const { data: idea } = useQuery(['idea', id], () => ideaService.getById(id));
+
+  return (
+    <div>
+      <h1>{idea?.title}</h1>
+      <p>{idea?.description}</p>
+    </div>
+  );
+}
+
+export default IdeaDetails;
