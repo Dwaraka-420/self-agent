@@ -1,0 +1,29 @@
+# AdminPanel.tsx
+Provides an admin interface for managing user roles and accounts.
+
+## Purpose
+Allows administrators to view, update, and delete user accounts.
+
+## Key Features
+1. **User Role Management**:
+   - Displays all users with role-based filtering.
+   - Allows updating user roles.
+
+2. **User Deletion**:
+   - Supports deletion of user accounts with confirmation.
+
+3. **Real-time Updates**:
+   - Automatically refreshes the user list upon updates or deletions.
+
+4. **Benefits**:
+   - Simplifies user account management.
+   - Enhances admin productivity with real-time feedback.
+
+## Example
+```javascript
+<select value={user.role} onChange={(e) => updateUserRole(user.id, e.target.value)}>
+  <option value="ADMIN">Admin</option>
+  <option value="REVIEWER">Reviewer</option>
+  <option value="APPLICANT">Applicant</option>
+</select>
+```
