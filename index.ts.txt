@@ -1,0 +1,19 @@
+# index.ts
+Entry point for exporting shared modules and utilities.
+
+## Purpose
+Aggregates and re-exports utilities, services, and components for easy import.
+
+## Key Features
+1. **Centralized Export**:
+   - Collects exports from multiple files into a single module.
+
+2. **Benefits**:
+   - Simplifies imports in other files.
+   - Enhances project structure by providing a central access point.
+
+## Example
+```javascript
+export * from './api';
+export * from './mockData';
+```
