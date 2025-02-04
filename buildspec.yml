@@ -1,0 +1,53 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.9
+      nodejs: 18 # Specify the Node.js version
+      dotnet: 6.0 # Specify the .NET version
+    commands:
+      - echo "Checking for project type in S3..."
+      - aws s3 cp s3://agent-datasource-bucket/codebase/package.json . || echo "No package.json found"
+      - aws s3 cp s3://agent-datasource-bucket/codebase/*.csproj . || echo "No .csproj file found"
+      - |
+        if [ -f package.json ]; then
+          echo "Node.js project detected.";
+          export RUNTIME=nodejs;
+        elif ls *.csproj 1> /dev/null 2>&1; then
+          echo "C# project detected.";
+          export RUNTIME=csharp;
+        else
+          echo "Python project detected.";
+          export RUNTIME=python;
+        fi
+      - echo "Installing dependencies..."
+      - |
+        if [ "$RUNTIME" == "nodejs" ]; then
+          npm install;
+        elif [ "$RUNTIME" == "csharp" ]; then
+          dotnet restore;
+        else
+          pip install -r requirements.txt;
+        fi
+
+  build:
+    commands:
+      - echo "Running the application..."
+      - echo "Runtime is $RUNTIME"
+      - |
+        if [ "$RUNTIME" == "nodejs" ]; then
+          echo "Building the Node.js project...";
+          npm run build; # Runs the build script (ensure this is defined in package.json)
+        elif [ "$RUNTIME" == "csharp" ]; then
+          echo "Building the C# project...";
+          dotnet build;
+        else
+          echo "Running the Python script...";
+          python first.py;
+        fi
+
+artifacts:
+  files:
+    - '**/*' # Include all files in the artifact
+  base-directory: .
