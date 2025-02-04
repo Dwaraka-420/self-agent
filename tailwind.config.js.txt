@@ -1,0 +1,8 @@
+# tailwind.config.js
+This is the Tailwind CSS configuration file for customizing the project's styles.
+
+- `content`: Specifies the files Tailwind should scan for class names.
+- `theme`:
+  - `extend.colors`: Adds a custom color (`customNav`).
+- `plugins`: Allows adding custom plugins (none are added here).
+Defines the Tailwind CSS framework settings for this project.
