@@ -1,0 +1,26 @@
+# index.css
+Defines the global styles for the application using Tailwind CSS.
+
+## Purpose
+Applies consistent styling across the application by leveraging the utility-first framework of Tailwind CSS.
+
+## Key Features
+1. **Base Styles:**
+   - Sets the foundation for typography and layout.
+
+2. **Component Styles:**
+   - Enables the use of prebuilt Tailwind components.
+
+3. **Utility Classes:**
+   - Allows custom styling through utility-first CSS classes.
+
+## Example
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+## Benefits
+- Ensures a consistent design system.
+- Reduces the need for custom CSS, improving maintainability.
