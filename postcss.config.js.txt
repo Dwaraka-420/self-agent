@@ -1,0 +1,7 @@
+# postcss.config.js
+This configuration file is used by PostCSS, a tool for transforming CSS with JavaScript plugins.
+
+- `plugins`:
+  - `tailwindcss`: Enables Tailwind CSS for utility-first styling.
+  - `autoprefixer`: Adds vendor prefixes to CSS rules for better browser compatibility.
+This file facilitates post-processing CSS to support modern and cross-browser compliant CSS.
